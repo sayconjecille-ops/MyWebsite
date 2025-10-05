@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Jecille Saycon</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .profile-section {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #FFF5F5;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(128,0,0,0.08);
+            padding: 2.5rem 2rem;
+        }
+        .cert-photo-gallery {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 1.2rem 0 2rem 0;
+            justify-content: flex-start;
+        }
+        .cert-photo-gallery img {
+            width: 520px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(128,0,0,0.13);
+            border: 5px solid #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: #fff;
+            margin-bottom: 1rem;
+        }
+        .cert-photo-gallery img:hover {
+            transform: scale(1.07) rotate(-2deg);
+            box-shadow: 0 12px 48px rgba(128,0,0,0.18);
+            border-color: #800000;
+        }
+        .career-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            position: relative;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .career-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 1px 6px rgba(128,0,0,0.06);
+            position: relative;
+            z-index: 2;
+        }
+        .career-divider {
+            width: 4px;
+            height: 40px;
+            background: linear-gradient(#80000033, #80000099);
+            margin: 0 auto;
+            border-radius: 2px;
+            z-index: 1;
+        }
+        .profile-links {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.2rem 0 2rem 0;
+            flex-wrap: wrap;
+        }
+        .profile-link {
+            display: inline-block;
+            padding: 0.7em 1.5em;
+            border-radius: 8px;
+            background: #800000;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(128,0,0,0.10);
+            transition: background 0.2s, transform 0.2s;
+            letter-spacing: 1px;
+        }
+        .profile-link:hover {
+            background: #A05252;
+            transform: translateY(-3px) scale(1.04);
+        }
+        .profile-link.coursera::before {
+            content: "🎓 ";
+        }
+        .profile-link.drive::before {
+            content: "📁 ";
+        }
+        .profile-link.linkedin {
+            background: #800000;
+            color: #fff;
+        }
+        .profile-link.linkedin:hover {
+            background: #A05252;
+        }
+        header {
+            background: linear-gradient(120deg, #800000 60%, #FFD6D6 100%);
+            color: #fff;
+            padding: 10px 0 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-wave {
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 45px;
+            z-index: 1;
+        }
+        .owner-name {
+            color: #FFD6D6;
+            font-weight: bold;
+            margin-bottom: 0;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s cubic-bezier(.4,0,.2,1);
+        }
+        header h1 {
+            margin-top: 10px;
+            margin-bottom: 0.2em;
+            font-size: 2.3rem;
+            letter-spacing: 2px;
+            animation: fadeInDown 0.8s cubic-bezier(.4,0,.2,1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        nav a {
+            color: #FFD6D6;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+            font-size: 1.08rem;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FFD6D6;
+            transition: width .3s;
+            margin: 0 auto;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 1100px) {
+            .cert-photo-gallery img {
+                width: 90vw;
+                height: 60vw;
+                max-width: 520px;
+                max-height: 360px;
+            }
+        }
+        @media (max-width: 700px) {
+            .cert-photo-gallery img {
+                width: 98vw;
+                height: 60vw;
+                max-width: 98vw;
+                max-height: 60vw;
+            }
+            .profile-section {
+                padding: 1.2rem 0.5rem;
+            }
+            .career-vertical {
+                gap: 1.2rem;
+            }
+            .career-divider {
+                height: 24px;
+            }
+            header h1 {
+                font-size: 1.4rem;
+            }
+            .owner-name {
+                font-size: 1.1rem;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Profile</h1>
+        <p class="owner-name">Jecille Saycon</p>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Animated SVG wave for bottom of header -->
+        <svg class="header-wave" viewBox="0 0 1440 45" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,20 Q360,60 720,20 T1440,20 V45 H0 Z" fill="#FFF5F5">
+                <animate attributeName="d" dur="4s" repeatCount="indefinite"
+                    values="
+                        M0,20 Q360,60 720,20 T1440,20 V45 H0 Z;
+                        M0,25 Q360,0 720,25 T1440,25 V45 H0 Z;
+                        M0,20 Q360,60 720,20 T1440,20 V45 H0 Z
+                    "
+                />
+            </path>
+        </svg>
+    </header>
+    <main>
+        <div class="profile-section">
+            <h2>Hobbies</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2.5rem;">
+                <!-- Running Hobby -->
+                <div style="flex: 1 1 220px; min-width: 200px;">
+                    <h3 style="margin-bottom: 0.5em;">🏃‍♀️ Running</h3>
+                    <div style="display: flex; gap: 0.7em; flex-wrap: wrap;">
+                        <img src="images/hobby_running1.jpg" alt="Running 1" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                        <img src="images/hobby_running2.jpg" alt="Running 2" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                        <img src="images/hobby_running3.jpg" alt="Running 3" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                        <img src="images/hobby_running4.jpg" alt="Running 3" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                    </div>
+                </div>
+                <!-- Socialize Hobby -->
+                <div style="flex: 1 1 220px; min-width: 200px;">
+                    <h3 style="margin-bottom: 0.5em;">🤝 Socialize</h3>
+                    <div style="display: flex; gap: 0.7em; flex-wrap: wrap;">
+                        <img src="images/hobby_socialize1.jpg" alt="Friends" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                        <img src="images/hobby_socialize2.jpg" alt="Co-workers" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                        <img src="images/hobby_socialize3.jpg" alt="Family" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                        <img src="images/hobby_socialize4.jpg" alt="Classmates" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                    </div>
+                </div>
+                <!-- Add more hobbies here if needed -->
+            </div>
+
+            <!-- College Graduate Section -->
+            <h2 style="margin-top:2.5rem;">🎓 College Graduate</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; margin-bottom:2.5rem;">
+                <div style="flex: 1 1 220px; min-width: 200px;">
+                    <h3 style="margin-bottom: 0.5em;">Diploma</h3>
+                    <div style="display: flex; gap: 0.7em; flex-wrap: wrap;">
+                        <img src="images/diploma.jpg" alt="Diploma" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                    </div>
+                </div>
+                <div style="flex: 1 1 220px; min-width: 200px;">
+                    <h3 style="margin-bottom: 0.5em;">Graduation Portrait</h3>
+                    <div style="display: flex; gap: 0.7em; flex-wrap: wrap;">
+                        <img src="images/graduation_portrait.jpg" alt="Graduation Portrait" style="width:300px; height:220px; object-fit:cover; border-radius:16px;">
+                    </div>
+                </div>
+            </div>
+            <p style="margin-bottom:2.5rem;">
+                Graduated on July 2025 with a degree of Bachelor of Science in Business Administration major in Marketing Management.
+            </p>
+
+            <h2 style="margin-top:2.5rem;">📸 Certificate Gallery</h2>
+            <div class="cert-photo-gallery">
+                <!-- Replace src with your actual certificate image paths -->
+                <img src="images/cert_ECD.jpg" alt="English for Career Development Certificate">
+                <img src="images/cert_BB.jpg" alt="Intuit Basic Bookkeeping Certificate">
+                <img src="images/cert_AE.jpg" alt="Academic Excellence Certificate">
+                <img src="images/cert_SJ.jpg" alt="Academioc Excellence Certificate">
+            </div>
+
+            <!-- Research Papers Section -->
+            <h2 style="margin-top:2.5rem;">📑 Research Papers</h2>
+            <div class="research-section" style="display: flex; flex-wrap: wrap; gap: 2.5rem; margin-bottom:2.5rem;">
+                <!-- Research Paper 1 -->
+                <div class="research-item" style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(128,0,0,0.08); padding:1.2rem; flex:1 1 520px; min-width:340px; max-width: 700px;">
+                    <img src="images/research_paper1.png" alt="Research Paper 1" style="width:600px; height:440px; object-fit:cover; border-radius:20px; margin-bottom:1rem;">
+                    <h3 style="margin:0.5em 0 0.3em 0; color:#800000;">Buying Behavior Towards Online Shopping of the Bachelor of Science in Business Administration Major in Marketing Management Students of Palawan State University</h3>
+                    <p style="margin:0;">
+                        This study aimed to identify the factors influencing 1st year marketing students’ online shopping behavior and perceptions in the S.Y. 2022–2023. Using a convenience sample, results showed that satisfaction was driven by special offers, discounts, and ease of online purchasing compared to physical stores. Key factors included better guarantees, warranties, and health and safety concerns. Findings suggest retailers should focus on competitive deals, convenience, strong return policies, clear product information, and variety to appeal to this demographic. The study can guide future marketers in understanding and managing consumer buying behaviors.
+                    </p>
+                </div>
+                <!-- Research Paper 2 -->
+                <div class="research-item" style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(128,0,0,0.08); padding:1.2rem; flex:1 1 520px; min-width:340px; max-width: 700px;">
+                    <img src="images/research_paper2.png" alt="Research Paper 2" style="width:600px; height:440px; object-fit:cover; border-radius:20px; margin-bottom:1rem;">
+                    <h3 style="margin:0.5em 0 0.3em 0; color:#800000;">Level of Satisfaction in the Services Offered by Honda Bay Boat Owners Service Cooperative (HBBOSCO)</h3>
+                    <p style="margin:0;">
+                        Tourism significantly contributes to the Philippines' socio-economic growth, but challenges remain in achieving sustainable and inclusive development. The Honda Bay Boat Owners Service Cooperative (HBBOSCO) plays a vital role in tourism at Honda Bay by providing boat services to visitors. This study aimed to assess tourist satisfaction with HBBOSCO’s services and identify factors influencing their experience. A total of 138 local and 135 foreign tourists who used the boat services were surveyed using close-ended questionnaires. Findings show that local tourists are satisfied with customer service and very satisfied with boat services. Foreign tourists are very satisfied with both customer and boat services provided by HBBOSCO.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Careers Section -->
+            <h2 style="margin-top:2.5rem;">💼 My Careers</h2>
+            <div class="career-vertical">
+                <div class="career-item">
+                    <h3>Online English Tutor</h3>
+                    <p>
+                    Taught basic English to Japanese students by conducting 30-minute to 1-hour classes, providing pointers and feedback on their performance, and engaging in conversations on various topics and articles. Managed time by setting up schedules ahead of time for students to book classes.
+                </div>
+                <div class="career-divider"></div>
+                <div class="career-item">
+                    <h3>Account Administrator</h3>
+                    <p>
+                        Perform data entry for bills and invoices, follow up on receipts and payments to ensure timely processing. Conduct monthly reports and quarterly reports
+                    </p>
+                </div>
+                <div class="career-divider"></div>
+                <div class="career-item">
+                    <h3>Office Staff (Full-Time)</h3>
+                    <p>
+                     Enter data for invoices, expenses, and inventory items. Create check vouchers and organizing summary statements from supplier. And perform assistance in sales by helping customers with their purchases and payments, including summarizing daily sales
+                </div>
+            </div>
+
+            <!-- Learning Links Section -->
+            <h2 style="margin-top:2.5rem;">🔗 My Learning Links</h2>
+            <div class="profile-links">
+                <a href="https://www.coursera.org/learner/jecille-saycon-6883" target="_blank" class="profile-link coursera">Coursera Profile</a>
+                <a href="https://drive.google.com/drive/folders/1sN_yJuvEUNhe2lfpXvH1zvq6wl_ITsAQ?usp=sharing" target="_blank" class="profile-link drive">Google Drive Projects</a>
+                <a href="https://www.linkedin.com/in/jecille-saycon-936b64298/" target="_blank" class="profile-link linkedin">
+                    <svg style="vertical-align:middle;margin-right:7px;" width="22" height="22" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#800000"/>
+                        <path d="M10.666 13.333h3.111v1.333h.045c.434-.823 1.494-1.69 3.077-1.69 3.29 0 3.895 2.165 3.895 4.983v5.707h-3.222v-5.063c0-1.207-.022-2.762-1.684-2.762-1.684 0-1.942 1.316-1.942 2.677v5.148h-3.222v-10.333zm-2.667 0h3.222v10.333h-3.222v-10.333zm1.611-5.333c1.035 0 1.889.854 1.889 1.889 0 1.035-.854 1.889-1.889 1.889-1.035 0-1.889-.854-1.889-1.889 0-1.035.854-1.889 1.889-1.889z" fill="#fff"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+
+            <!-- Leadership & Volunteer Section -->
+            <h2 style="margin-top:2.5rem;">🤝 Leadership & Volunteer Experience</h2>
+            <div class="research-section" style="display: flex; flex-wrap: wrap; gap: 2.5rem; margin-bottom:2.5rem;">
+                <!-- Leadership/Volunteer 1 -->
+                <div class="research-item" style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(128,0,0,0.08); padding:1.2rem; flex:1 1 520px; min-width:340px; max-width: 600px;">
+                    <h3 style="margin:0.5em 0 0.3em 0; color:#800000;">SSG President 2016-2017</h3>
+                    <p style="margin:0;">
+                        I served a one-year term as the SSG President of San Jose Tagburos Extension. I was chosen by the teachers to lead the students and oversee activities that would benefit them. Throughout my term, I gave my best and fulfilled all the tasks and responsibilities entrusted to me.
+                    </p>
+                </div>
+                <!-- Leadership/Volunteer 2 -->
+                <div class="research-item" style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(128,0,0,0.08); padding:1.2rem; flex:1 1 520px; min-width:340px; max-width: 600px;">
+                    <h3 style="margin:0.5em 0 0.3em 0; color:#800000;">Church Youth Volunteer</h3>
+                    <p style="margin:0;">
+                        I have been a volunteer for five years in Catholic churches, serving as both a member and a leader. During this time, I assisted in organizing and guiding youth and children's activities, including choir, camps, and church gatherings. Through faith and leadership, I was given the opportunity to serve wholeheartedly and make a positive impact within the community.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Jecille Saycon. All rights reserved.</p>
+    </footer>
+</body>
+</html>

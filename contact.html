@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Jecille Saycon</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #faf6f6;
+        }
+        header {
+            background: linear-gradient(120deg, #800000 60%, #FFD6D6 100%);
+            color: #fff;
+            padding: 10px 0 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-wave {
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 45px;
+            z-index: 1;
+        }
+        .owner-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0 1.5rem 0;
+            letter-spacing: 2px;
+            color: #FFD6D6;
+            animation: fadeInDown 1s cubic-bezier(.4,0,.2,1);
+        }
+        header h1 {
+            margin-top: 10px;
+            margin-bottom: 0.2em;
+            font-size: 2.3rem;
+            letter-spacing: 2px;
+            animation: fadeInDown 0.8s cubic-bezier(.4,0,.2,1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        nav a {
+            color: #FFD6D6;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+            font-size: 1.08rem;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FFD6D6;
+            transition: width .3s;
+            margin: 0 auto;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        main {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        .contact-flex-container {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .contact-info-panel {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(128,0,0,0.10);
+            padding: 2.5rem 2rem;
+            width: 340px;
+            min-width: 260px;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .contact-info-panel h2 {
+            color: #800000;
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+        .contact-info-group h3 {
+            margin: 0 0 0.5rem 0;
+            color: #A05252;
+            font-size: 1.1rem;
+        }
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0.7rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .social-links a {
+            color: #800000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+            font-size: 1.05rem;
+        }
+        .social-links a:hover {
+            color: #A05252;
+            text-decoration: underline;
+        }
+        .email-link {
+            color: #800000;
+            text-decoration: underline;
+            font-weight: bold;
+            word-break: break-all;
+        }
+        .map-container {
+            margin-top: 0.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(128,0,0,0.10);
+            background: #FFF5F5;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 140px;
+            border: none;
+            display: block;
+        }
+        .map-container small {
+            display: block;
+            text-align: center;
+            color: #4B1C1C;
+            margin: 0.3rem 0 0.2rem 0;
+            font-size: 0.97rem;
+        }
+        .contact-container {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(128,0,0,0.10);
+            padding: 2.5rem 2rem;
+            width: 90vw;
+            max-width: 500px;
+            min-width: 260px;
+        }
+        @media (max-width: 900px) {
+            .contact-flex-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 2rem;
+            }
+            .contact-info-panel, .contact-container {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        @media (max-width: 700px) {
+            .owner-name {
+                font-size: 1.1rem;
+            }
+            header h1 {
+                font-size: 1.4rem;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+            .contact-container {
+                padding: 1.2rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact</h1>
+        <p class="owner-name">Jecille Saycon</p>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+            </ul>
+        </nav>
+        <!-- Animated SVG wave for bottom of header -->
+        <svg class="header-wave" viewBox="0 0 1440 45" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,20 Q360,60 720,20 T1440,20 V45 H0 Z" fill="#FFF5F5">
+                <animate attributeName="d" dur="4s" repeatCount="indefinite"
+                    values="
+                        M0,20 Q360,60 720,20 T1440,20 V45 H0 Z;
+                        M0,25 Q360,0 720,25 T1440,25 V45 H0 Z;
+                        M0,20 Q360,60 720,20 T1440,20 V45 H0 Z
+                    "
+                />
+            </path>
+        </svg>
+    </header>
+    <main>
+        <div class="contact-flex-container">
+            <!-- Left: Socials, Professional, Email, Map -->
+            <div class="contact-info-panel">
+                <h2>Contact Information</h2>
+                <div class="contact-info-group">
+                    <h3>Social Media</h3>
+                    <ul class="social-links">
+                        <li><a href="https://www.facebook.com/jecille.saycon/" target="_blank">📘 Facebook</a></li>
+                        <li><a href="https://www.instagram.com/jejecille/" target="_blank">📸 Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/@jejemuah?_t=ZS-90I44WIrRk8&_r=1" target="_blank">🎵 TikTok</a></li>
+                    </ul>
+                </div>
+                <div class="contact-info-group">
+                    <h3>Professional</h3>
+                    <ul class="social-links">
+                        <li><a href="https://www.linkedin.com/in/jecille-saycon-936b64298/" target="_blank">💼 LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="contact-info-group">
+                    <h3>Email</h3>
+                    <p>
+                        <a class="email-link" href="mailto:sayconjecille@gmail.com">sayconjecille@gmail.com</a>
+                    </p>
+                </div>
+                <div class="contact-info-group">
+                    <h3>Location</h3>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=118.721%2C9.726%2C118.781%2C9.781&amp;layer=mapnik&amp;marker=9.748%2C118.750"
+                            style="border:1px solid #800000;" allowfullscreen="" loading="lazy"></iframe>
+                        <small>
+                            Puerto Princesa City, Palawan, Philippines
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <!-- Right: Contact Form -->
+            <div class="contact-container">
+                <h2>Get in Touch</h2>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Jecille Saycon. All rights reserved.</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

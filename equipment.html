@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Equipment</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #faf6f6;
+        }
+        header {
+            position: relative;
+            background: linear-gradient(120deg, #800000 60%, #FFD6D6 100%);
+            color: #fff;
+            padding: 20px 0 30px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+        }
+        .equipment-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 2.5rem 1rem;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        .equipment-item {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(128,0,0,0.10);
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 1700px;
+            padding: 2.5rem 2rem;
+            text-align: left;
+            transition: transform 0.2s, box-shadow 0.2s;
+            gap: 2.5rem;
+        }
+        .equipment-item:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(128,0,0,0.18);
+        }
+        .equipment-photo {
+            width: 1040px;
+            height: 720px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 6px solid #FFD6D6;
+            margin-bottom: 0;
+            flex-shrink: 0;
+        }
+        .equipment-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .equipment-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #800000;
+            margin-bottom: 1rem;
+        }
+        .equipment-desc {
+            font-size: 1.15rem;
+            color: #333;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            color: #FFD6D6;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.08rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        @media (max-width: 1200px) {
+            .equipment-photo {
+                width: 90vw;
+                height: 60vw;
+                max-width: 700px;
+                max-height: 480px;
+            }
+            .equipment-item {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding: 1.5rem 0.5rem;
+            }
+        }
+        @media (max-width: 700px) {
+            .equipment-photo {
+                width: 98vw;
+                height: 60vw;
+                max-width: 98vw;
+                max-height: 60vw;
+            }
+            .equipment-item {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding: 1rem 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Equipment</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="equipment-gallery">
+            <div class="equipment-item">
+                <img src="images/pc-setup.jpg" alt="PC Setup" class="equipment-photo">
+                <div class="equipment-info">
+                    <div class="equipment-title">My PC Setup</div>
+                    <div class="equipment-desc">
+                        This is my main workstation where I do all my editing, designing, and gaming. It's equipped with a modern processor and ample RAM to handle demanding tasks smoothly.
+                    </div>
+                </div>
+            </div>
+            <div class="equipment-item">
+                <img src="images/wifi-router.jpg" alt="WiFi Router" class="equipment-photo">
+                <div class="equipment-info">
+                    <div class="equipment-title">WiFi Router</div>
+                    <div class="equipment-desc">
+                        Reliable internet is a must! My router ensures a stable and fast connection for all my online activities and remote work.
+                    </div>
+                </div>
+            </div>
+            <div class="equipment-item">
+                <img src="images/laptop.jpg" alt="Laptop" class="equipment-photo">
+                <div class="equipment-info">
+                    <div class="equipment-title">Laptop</div>
+                    <div class="equipment-desc">
+                        This is a 2017 Lenovo 4G laptop that is functional and suitable for basic work tasks. It operates reliably for general use.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Jecille Saycon. All rights reserved.</p>
+    </footer>
+</body>
+</html>

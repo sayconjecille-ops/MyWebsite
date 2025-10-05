@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #faf6f6;
+        }
+        header {
+            background: linear-gradient(120deg, #800000 60%, #FFD6D6 100%);
+            color: #fff;
+            padding: 10px 0 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-wave {
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 45px;
+            z-index: 1;
+        }
+        .owner-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0 1.5rem 0;
+            letter-spacing: 2px;
+            color: #FFD6D6;
+            animation: fadeInDown 1s cubic-bezier(.4,0,.2,1);
+        }
+        header h1 {
+            margin-top: 10px;
+            margin-bottom: 0.2em;
+            font-size: 2.3rem;
+            letter-spacing: 2px;
+            animation: fadeInDown 0.8s cubic-bezier(.4,0,.2,1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        nav a {
+            color: #FFD6D6;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+            font-size: 1.08rem;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FFD6D6;
+            transition: width .3s;
+            margin: 0 auto;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 1rem 3rem 1rem;
+        }
+        .about-hero-flex {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 3.5rem;
+            min-height: 700px;
+        }
+        .about-photo-fixed {
+            position: sticky;
+            top: 40px;
+            align-self: flex-start;
+            z-index: 2;
+        }
+        .about-photo-fixed img {
+            width: 340px;
+            max-width: 30vw;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: 0 12px 48px rgba(128,0,0,0.18);
+            border: 8px solid #800000;
+            margin-bottom: 1.2rem;
+            transition: transform 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.4s;
+            background: #fff;
+        }
+        .about-photo-fixed img:hover {
+            transform: scale(1.03) rotate(-2deg);
+            box-shadow: 0 24px 96px rgba(128,0,0,0.22);
+        }
+        .about-description-scroll {
+            flex: 1;
+            max-height: 700px;
+            overflow-y: auto;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        .about-section {
+            background: #fff7f7;
+            border-left: 6px solid #800000;
+            border-radius: 16px;
+            padding: 2rem 2.5rem 2rem 2.5rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 2px 16px rgba(128,0,0,0.07);
+            position: relative;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+        }
+        .about-section h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #800000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .about-section.background h2::before { content: "💡"; }
+        .about-section.skills h2::before { content: "🛠️"; }
+        .about-section.experience h2::before { content: "📈"; }
+        .about-section.future h2::before { content: "🚀"; }
+        .about-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .skills-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.1rem;
+            font-size: 1.08rem;
+        }
+        .skills-list li:hover {
+            background: #ffeaea;
+            border-radius: 8px;
+            transform: scale(1.03);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .skill-name {
+            flex: 1;
+        }
+        .skill-rating {
+            display: flex;
+            gap: 2px;
+            margin-left: 1.2rem;
+        }
+        .star {
+            font-size: 1.2rem;
+            color: #FFD700;
+            filter: drop-shadow(0 1px 1px #80000022);
+        }
+        .star.unfilled {
+            color: #e0cfcf;
+        }
+        .resume-btn {
+            display: inline-block;
+            background: #800000;
+            color: #fff;
+            padding: 0.7em 1.5em;
+            border-radius: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 1.2em 0 0.5em 0;
+            transition: background 0.2s;
+        }
+        .resume-btn:hover {
+            background: #FFD6D6;
+            color: #800000;
+        }
+        .resume-btn-floating {
+            position: absolute;
+            top: -32px;
+            right: -32px;
+            z-index: 20;
+            box-shadow: 0 4px 18px rgba(128,0,0,0.13);
+            font-size: 1.08rem;
+            opacity: 0.92;
+        }
+        .resume-btn-floating:hover {
+            opacity: 1;
+            box-shadow: 0 8px 32px rgba(128,0,0,0.18);
+        }
+        @media (max-width: 700px) {
+            main {
+                padding: 1.2rem 0.2rem 2rem 0.2rem;
+            }
+            .about-section {
+                padding: 1.2rem 1rem 1.2rem 1rem;
+            }
+            .about-photo-fixed img {
+                width: 98vw;
+                max-width: 98vw;
+                height: 260px;
+                border-radius: 24px;
+            }
+            .about-description-scroll {
+                max-height: unset;
+                padding-right: 0;
+            }
+            .resume-btn-floating {
+                top: -18px;
+                right: 0;
+                font-size: 0.98rem;
+                padding: 0.6em 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Me</h1>
+        <p class="owner-name">Jecille Saycon</p>
+        <nav>
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            <ul>
+        </nav>
+        <!-- Animated SVG wave for bottom of header -->
+        <svg class="header-wave" viewBox="0 0 1440 45" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,20 Q360,60 720,20 T1440,20 V45 H0 Z" fill="#FFF5F5">
+                <animate attributeName="d" dur="4s" repeatCount="indefinite"
+                    values="
+                        M0,20 Q360,60 720,20 T1440,20 V45 H0 Z;
+                        M0,25 Q360,0 720,25 T1440,25 V45 H0 Z;
+                        M0,20 Q360,60 720,20 T1440,20 V45 H0 Z
+                    "
+                />
+            </path>
+        </svg>
+    </header>
+    <main>
+        <div class="about-hero-flex">
+            <div class="about-photo-fixed">
+                <img src="images/image01.png" alt="Jecille Saycon">
+            </div>
+            <div class="about-description-scroll" style="position:relative;">
+                <section class="about-section background">
+                    <h2>Background</h2>
+                    <p>
+                        Hello, my name is Jecille Saycon, but you can call me Jeje. Im an aspiring marketer who is continuously leveling up my expertise in online work. Ive been on a journey of learning and exploring opportunities to find roles that suit me best. Im passionate about creativity and technology, and I enjoy working in a team where I can contribute in meaningful ways.  My journey began when I took on a part-time online role, which sparked my interest and motivated me to pursue a career in this industry. Since then, Ive been committed to growing my skills and building a career that combines both my passion and dedication.
+                    </p>
+                </section>
+                <section class="about-section skills">
+                    <h2>Skills</h2>
+                    <ul class="skills-list">
+                        <li>
+                            <span class="skill-name">Web Development</span>
+                            <span class="skill-rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="skill-name">Microsoft Office</span>
+                            <span class="skill-rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="skill-name">Google Workspace</span>
+                            <span class="skill-rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="skill-name">Data Entry</span>
+                            <span class="skill-rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="skill-name">Monitoring and Organizing</span>
+                            <span class="skill-rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="skill-name">Teaching</span>
+                            <span class="skill-rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="skill-name">Canva / Editing</span>
+                            <span class="skill-rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="skill-name">Marketing</span>
+                            <span class="skill-rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="skill-name">Ouickbooks Accounting System</span>
+                            <span class="skill-rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                                <span class="star unfilled">&#9733;</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+                <section class="about-section experience">
+                    <h2>Experience</h2>
+                    <p>
+                        With two years of experience across various fields, I have consistently dedicated myself to performing every task with focus and commitment. My professional background includes online tutoring, handling data entry projects, and providing assistance with office-related work. I take pride in meeting deadlines, learning quickly, and contributing positively to every role I take on.
+                    </p>
+                </section>
+                <section class="about-section future">
+                    <h2>Future Perspective</h2>
+                    <p>
+                        I’m currently on a journey to strengthen my expertise in marketing, creativity, and administrative assistance through online work. During my studies, I took on several leadership roles, which encouraged me to lead and manage groups. These experiences have shaped my perspective and goals for the future, where I aim to take on more leadership opportunities and continue growing in these fields.
+                    </p>
+                </section>
+            </div>
+        </div>
+        <span id="typing-effect" style="display:block;font-size:1.3rem;color:#800000;font-weight:bold;height:1.5em;"></span>
+    </main>
+    <footer>
+        <p>&copy; 2025 Jecille Saycon. All rights reserved.</p>
+    </footer>
+    <script>
+        // Animate sections on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.about-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Typewriter effect for the tagline
+        const text = "Aspiring Marketer | Creative Thinker | Team Player";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typing-effect").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 60);
+            }
+        }
+        window.addEventListener('DOMContentLoaded', typeWriter);
+    </script>
+</body>
+</html>
